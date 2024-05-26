@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; // Importamos ActivatedRoute y Router
 
 @Component({
@@ -6,18 +6,20 @@ import { ActivatedRoute, Router } from '@angular/router'; // Importamos Activate
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage { // A esta clase existente agregamos los campos de la clase Usuario
+export class HomePage implements OnInit { // A esta clase existente agregamos la logica
+  usuarioRecibido: string = ''; // Creamos una variable para recibir el usuario
+  contrasenaRecibida: string = ''; // Creamos una variable para recibir la contraseña
 
-  usuario!: string;
-  contrasena!: string;
-  nombre!: string;
-  apellido!: string;
-  nivelEducacion!: string;
-  fechaNacimiento!: string;
+  constructor(private activerouter: ActivatedRoute, private router: Router) {
+    this.activerouter.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        this.usuarioRecibido = this.router.getCurrentNavigation()?.extras?.state?.['usuarioEnvio'];
+      }
+    }
+    );
+  }
 
-
-  constructor(private route: ActivatedRoute, private router: Router) {
-
+  ngOnInit() {
 
   }
 
