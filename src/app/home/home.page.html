@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      SkeletonAPP
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,5 +17,28 @@
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
+
+  <p>Usuario: {{ usuario }}</p>
+
+  <ion-item>
+    <ion-label>Nombre:</ion-label>
+    <ion-input [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Apellido:</ion-label>
+    <ion-input [(ngModel)]="apellido"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nivel de Educación:</ion-label>
+    <ion-input [(ngModel)]="nivelEducacion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Fecha de Nacimiento:</ion-label>
+    <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="fechaNacimiento"></ion-datetime>
+  </ion-item>
+
 </ion-content>
 
