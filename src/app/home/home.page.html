@@ -2,6 +2,8 @@
   <ion-toolbar>
     <ion-title>
       SkeletonAPP
+      <p>Bienvenido: {{ usuarioRecibido }}</p>
+
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,6 +13,7 @@
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
+    
   </ion-header>
 
   <div id="container">
@@ -18,10 +21,25 @@
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
 
-  <p>Bienvenido: {{ usuarioRecibido }}</p>
+  <ion-item>
+    <ion-label position="floating">Nombre: </ion-label>
+    <ion-input type="text" minlength="3" maxlength="8" placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="floating">Apellido: </ion-label>
+    <ion-input type="text" minlength="3" maxlength="8" placeholder="Ingrese su apellido" [(ngModel)]="apellido"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="floating">Nivel educacion:</ion-label>
+    <ion-input type="text" minlength="3" maxlength="8" placeholder="Ingrese su nivel de educacion" [(ngModel)]="nivelEducacion"></ion-input>
+  </ion-item>
 
+  <ion-item>
+    <ion-label position="floating">Fecha nacimiento:</ion-label>
+    <ion-input type="date" minlength="3" maxlength="8" placeholder="Ingrese su fecha de nacimiento" [(ngModel)]="fechaNacimiento"></ion-input>
+  </ion-item>
 
 </ion-content>
 
