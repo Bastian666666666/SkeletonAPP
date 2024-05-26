@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import type { IonInput } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,27 +7,28 @@ import type { IonInput } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  // Access the input element
-  inputModel = '';
+  usuario: string = '';
+  contrasena: string = '';
 
-  @ViewChild('ionInputEl', { static: true }) ionInputEl!: IonInput;
+  constructor(private router: Router) { }
 
-  /*ngOnInit() { 
+  agregarDatos() {
+    // Validar el usuario y la contraseña
+    if (this.usuario.length >= 3 && this.usuario.length <= 8 && /^\d{4}$/.test(this.contrasena)) {
+      console.log('Datos agregados');
+      console.log('Usuario:', this.usuario);
+      console.log('Contraseña:', this.contrasena);
 
-  }*/
+      let navigationExtras: NavigationExtras = {
+        state: {
+          usuario: this.usuario,
+          contrasena: this.contrasena
+        }
+      };
 
-  constructor() { }
-
-  onInput(ev: Event) {
-    const value = (ev.target as HTMLInputElement).value;
-
-    // Removes non alphanumeric characters
-    const filteredValue = value.replace(/[^a-zA-Z0-9]+/g, '');
-
-    /**
-     * Update both the state variable and
-     * the component to keep them in sync.
-     */
-    this.ionInputEl.value = this.inputModel = filteredValue;
+      this.router.navigate(['/home'], navigationExtras);
+    } else {
+      console.log('Usuario o contraseña inválidos');
+    }
   }
 }

@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title class="ion-text-center">SkeletonAPP</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,16 +12,18 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- Alphan. option for Name -->
-  <ion-list>
-    <ion-item>
-      <ion-label>Nombre: </ion-label>
-      <ion-input
-        [value]="inputModel"
-        (ionInput)="onInput($event)"
-        #ionInputEl
-      ></ion-input>
-    </ion-item>
-  </ion-list>
 
+  <ion-item>
+    <ion-label position="floating">Usuario</ion-label>
+    <ion-input type="text" minlength="3" maxlength="8" placeholder="Ingrese su usuario" [(ngModel)]="usuario"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input type="password" pattern="\d{4}" placeholder="****" [(ngModel)]="contrasena"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="agregarDatos()">Agregar</ion-button>
+
+  
 </ion-content>
