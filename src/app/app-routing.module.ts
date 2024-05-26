@@ -5,16 +5,17 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
+},
+{
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
+},
+{
+    // Redirect to login page if no path is provided ('') 
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full' // Redirect if the full path is empty
+},
 ];
 
 @NgModule({
