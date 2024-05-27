@@ -16,11 +16,6 @@
     
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-
   <ion-item>
     <ion-label position="floating">Nombre: </ion-label>
     <ion-input type="text" minlength="3" maxlength="8" placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
@@ -32,14 +27,26 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Nivel educacion:</ion-label>
-    <ion-input type="text" minlength="3" maxlength="8" placeholder="Ingrese su nivel de educacion" [(ngModel)]="nivelEducacion"></ion-input>
+    <ion-label>Nivel de educación:</ion-label>
+    <ion-select [(ngModel)]="nivelEducacion">
+      <ion-select-option value="Educacion basica incompleta">Educacion basica incompleta</ion-select-option>
+      <ion-select-option value="Educacion basica completa">Educacion basica completa</ion-select-option>
+      <ion-select-option value="Educacion media incompleta">Educacion media incompleta</ion-select-option>
+      <ion-select-option value="Educacion media completa">Educacion media completa</ion-select-option>
+      <ion-select-option value="tecnico">tecnico</ion-select-option>
+      <ion-select-option value="universitario">universitario</ion-select-option>
+      <ion-select-option value="postgrado">postgrado</ion-select-option>
+      <ion-select-option value="Otro">Otro</ion-select-option>
+    </ion-select>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">Fecha nacimiento:</ion-label>
     <ion-input type="date" minlength="3" maxlength="8" placeholder="Ingrese su fecha de nacimiento" [(ngModel)]="fechaNacimiento"></ion-input>
   </ion-item>
+
+  <ion-button color="primary" (click)="limpiarFormulario()">Limpiar</ion-button>
+  <ion-button color="primary" (click)="mostrarPopup()">Mostrar</ion-button>
 
 </ion-content>
 
