@@ -19,13 +19,17 @@ export class LoginPage {
 
   //**METODOS (VAN ABAJO DEL CONSTRUCTOR)
   agregarDatos() {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        usuarioEnvio: this.usuario,
-        contrasenaEnvio: this.contrasena
+    if (this.usuario.length >= 3 && this.usuario.length <= 8 && /^[a-z0-9]+$/i.test(this.usuario) && /^[0-9]{4}$/.test(this.contrasena)) {
+      let navigationExtras: NavigationExtras = {
+        state: {
+          usuarioEnvio: this.usuario,
+          contrasenaEnvio: this.contrasena
+        }
       }
+      this.router.navigate(['/home'], navigationExtras);
+    } else {
+      // Mostrar un mensaje de error o hacer algo cuando el usuario o la contraseña son inválidos
     }
-    this.router.navigate(['/home'], navigationExtras);
   }
 
 

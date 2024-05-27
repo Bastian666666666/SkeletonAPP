@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="ion-text-center">SkeletonAPP</ion-title>
+    <ion-title class="ion-text-center">SkeletonAPP</ion-title> <!-- TODO El texto se ve cortado, corregir -->
   </ion-toolbar>
 </ion-header>
 
@@ -12,17 +12,21 @@
     </ion-toolbar>
   </ion-header>
 
-
+  <!-- CAMPOS PARA RELLENAR -->
+  
+  <!-- usuario -->
   <ion-item>
     <ion-label position="floating">Usuario</ion-label>
-    <ion-input type="text" minlength="3" maxlength="8" placeholder="Ingrese su usuario" [(ngModel)]="usuario"></ion-input>
+    <ion-input type="text" minlength="3" maxlength="8" placeholder="Ingrese su usuario" [(ngModel)]="usuario" pattern="[a-zA-Z0-9]*"></ion-input>
   </ion-item>
 
+  <!-- contrasena -->
   <ion-item>
     <ion-label position="floating">Contraseña</ion-label>
-    <ion-input type="password" pattern="\d{4}" placeholder="****" [(ngModel)]="contrasena"></ion-input>
+    <ion-input type="password" placeholder="Ingrese su contraseña" [(ngModel)]="contrasena" pattern="^[0-9]{4}$" maxlength="4"></ion-input>
   </ion-item>
 
+  <!-- Boton que lleva al home -->
   <ion-button (click)="agregarDatos()">Agregar</ion-button>
 
   
